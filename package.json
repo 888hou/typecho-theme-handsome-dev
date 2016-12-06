@@ -1,0 +1,22 @@
+{
+  "name": "handsome",
+  "version": "1.0.0",
+  "description": "一款typecho 功能强大，外观简约的主题",
+  "main": "grunfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typecho",
+    "theme"
+  ],
+  "author": "ihewro",
+  "license": "ISC"
+}
