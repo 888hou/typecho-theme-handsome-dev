@@ -3477,13 +3477,13 @@ a.list-group-item.hover {
   margin-right: 0;
 }
 
-.list-group-item > .fa-chevron-right {
+.list-group-item > .icon-chevron {
   float: right;
   margin-top: 4px;
   margin-right: -5px;
 }
 
-.list-group-item > .fa-chevron-right + .badge {
+.list-group-item > .icon-chevron + .badge {
   margin-right: 5px;
 }
 
@@ -4150,14 +4150,14 @@ body {
     left: 0;
     z-index: 1000;
     width: 199px;
-    overflow: hidden;
+    /*overflow: hidden;*/ /*解决选中固定导航、折叠导航下，侧边栏图标栏目无法打开*/
   }
   .app-aside-fixed .aside-wrap .navi-wrap {
     position: relative;
     width: 217px;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    /*overflow-x: hidden;
+    overflow-y: scroll;*/ /*解决选中固定导航、折叠导航下，侧边栏图标栏目无法打开*/
     -webkit-overflow-scrolling: touch;
   }
   .app-aside-fixed .aside-wrap .navi-wrap::-webkit-scrollbar {
@@ -8180,7 +8180,7 @@ img {
     width: auto;
   }
   .shift {
-    display: none !important;
+    display: block !important;
   }
   .shift.in {
     display: block !important;
@@ -8322,6 +8322,13 @@ p.summary {
     word-break: break-all;
 }
 
+.superscript {
+    font-size: .45em!important;
+    position: absolute;
+    padding-left: .4375rem;
+    padding-top: .1875rem;
+    color: inherit!important;
+}
 
 
 /* Moving bar */
@@ -8456,11 +8463,11 @@ p.summary {
 
 
 @font-face {font-family: "iconfont";
-  src: url('../fonts/iconfont.eot?t=1480834020755'); /* IE9*/
-  src: url('../fonts/iconfont.eot?t=1480834020755#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/iconfont.woff?t=1480834020755') format('woff'), /* chrome, firefox */
-  url('../fonts/iconfont.ttf?t=1480834020755') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../fonts/iconfont.svg?t=1480834020755#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('../fonts/iconfont.eot?t=1481083456805'); /* IE9*/
+  src: url('../fonts/iconfont.eot?t=1481083456805#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff?t=1481083456805') format('woff'), /* chrome, firefox */
+  url('../fonts/iconfont.ttf?t=1481083456805') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg?t=1481083456805#iconfont') format('svg'); /* iOS 4.1- */
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -8501,7 +8508,11 @@ p.summary {
 
 .icon-dedent:before { content: "\e6dc"; }
 
+.icon-clocko:before { content: "\e6fa"; }
+
 .icon-angleright:before { content: "\e6df"; }
+
+.icon-chevron:before { content: "\e617"; }
 
 .icon-c-classification:before { content: "\e636"; }
 
@@ -8513,11 +8524,18 @@ p.summary {
 
 .icon-user:before { content: "\e66c"; }
 
+.icon-mailforward:before { content: "\e776"; }
+
+.icon-pencilsquareo:before { content: "\e7b2"; }
+
+.icon-signin:before { content: "\e806"; }
+
 .icon-tags:before { content: "\e844"; }
+
+.icon-unlockalt:before { content: "\e878"; }
 
 .icon-google:before { content: "\e635"; }
 
 .icon-fire:before { content: "\e67e"; }
 
 .icon-rss1:before { content: "\e602"; }
-

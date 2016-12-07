@@ -296,13 +296,13 @@ a.list-group-item.hover {
   margin-right: 0;
 }
 
-.list-group-item > .fa-chevron-right {
+.list-group-item > .icon-chevron {
   float: right;
   margin-top: 4px;
   margin-right: -5px;
 }
 
-.list-group-item > .fa-chevron-right + .badge {
+.list-group-item > .icon-chevron + .badge {
   margin-right: 5px;
 }
 
@@ -969,14 +969,14 @@ body {
     left: 0;
     z-index: 1000;
     width: 199px;
-    overflow: hidden;
+    /*overflow: hidden;*/ /*解决选中固定导航、折叠导航下，侧边栏图标栏目无法打开*/
   }
   .app-aside-fixed .aside-wrap .navi-wrap {
     position: relative;
     width: 217px;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    /*overflow-x: hidden;
+    overflow-y: scroll;*/ /*解决选中固定导航、折叠导航下，侧边栏图标栏目无法打开*/
     -webkit-overflow-scrolling: touch;
   }
   .app-aside-fixed .aside-wrap .navi-wrap::-webkit-scrollbar {
@@ -4999,7 +4999,7 @@ img {
     width: auto;
   }
   .shift {
-    display: none !important;
+    display: block !important;
   }
   .shift.in {
     display: block !important;
@@ -5141,6 +5141,13 @@ p.summary {
     word-break: break-all;
 }
 
+.superscript {
+    font-size: .45em!important;
+    position: absolute;
+    padding-left: .4375rem;
+    padding-top: .1875rem;
+    color: inherit!important;
+}
 
 
 /* Moving bar */
