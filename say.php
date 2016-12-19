@@ -1,4 +1,6 @@
-<?php function threadedComments($comments, $options) {
+<?php 
+$GLOBALS['z']  = $this->options->CDNURL;
+function threadedComments($comments, $options) {
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -23,7 +25,7 @@ echo $commentClass;
 ?>">
         <?php
         //头像CDN by Rich http://forum.typecho.org/viewtopic.php?f=5&t=6165&p=29961&hilit=gravatar#p29961
-            $host = 'https://secure.gravatar.com';//自定义头像CDN服务器
+            $host = $GLOBALS['z'];//自定义头像CDN服务器
             $url = '/avatar/';//自定义头像目录,一般保持默认即可
             $size = '80';//自定义头像大小
             $rating = Helper::options()->commentsAvatarRating;
@@ -43,7 +45,7 @@ echo $commentClass;
               </span>
             </div>
             <div class="m-b">
-              <div class="m-b"><?php $comments->content(); ?></div>
+              <div class="m-b words_contents"><?php $comments->content(); ?></div>
             </div>
           </div>
 
@@ -51,7 +53,7 @@ echo $commentClass;
     </div><!--匹配`自定义评论的代码结构`下面的div标签-->
 <?php } ?>
 
-<div id="comments">
+<div id="comments" class="smalltalk">
     <!--如果允许评论，会出现评论框和个人信息的填写-->
     <?php if($this->allow('comment')): ?>
       <!--判断是否登录，只有登陆者才有权利发表说说-->
@@ -66,8 +68,12 @@ echo $commentClass;
       <div class="panel-footer bg-light lter">
         <button type="submit" name="submit" id="submit" class="submit btn btn-info pull-right btn-sm">
           <span class="text">发表新鲜事</span>
+          <span class="text-active">提交中...
+            <i class="icon-spin iconfont icon-spinner hide" id="spin"></i>
+          </span>
         </button>
             <ul class="nav nav-pills nav-sm">
+            <li><a id="image-insert" ><i class="iconfont icon-image text-muted"></i></a></li>
             </ul>
         </div>
     </form>
@@ -79,18 +85,37 @@ echo $commentClass;
     <?php else: ?>
     <h4>此处评论已关闭</h4>
     <?php endif; ?>
-<div class="streamline b-l b-info m-l-lg m-b padder-v">
-
    <?php $this->comments()->to($comments); ?>
    <?php if ($comments->have()): ?>
+<div class="streamline b-l b-info m-l-lg m-b padder-v">
+
     <h4 style="display: none" class="comments-title m-t-lg m-b"><?php $this->commentsNum(_t(' 暂无评论'), _t(' 1 条评论'), _t(' %d 条评论')); ?></h4>
     <?php $comments->listComments(); ?>
 </div>
-    <?php //if (($this->options->commentsPageBreak)): ?><!--如何后台评论设置启用了分页，则显示分页-->
     <nav class="text-center m-b-lg" role="navigation">
         <?php $comments->pageNav('&lt;', '&gt;'); ?>
     </nav>
+    <?php else: ?>
+<div class="streamline b-l b-info m-l-lg m-b padder-v">
+    <ol class="comment-list list-unstyled m-b-none"> 
+    <div class="comment-body comment-parent comment-odd comment-by-author">
+        
+          <a class="pull-left thumb-sm avatar m-l-n-md">
+            <img src="<?php $this->options->BlogPic(); ?>">
+          </a>
+
+          <div class="m-l-lg m-b-lg">
+            <div class="m-b-xs">
+              <a href="" class="h4"></a><a href="<?php $this->options->siteUrl(); ?>"><?php $this->user->screenName(); ?></a>
+              <span class="text-muted m-l-sm pull-right"><?php echo date("F jS, Y \a\t h:i a",time()+($this->options->timezone - idate("Z"))); ?></span>
+            </div>
+            <div class="m-b">
+              <div class="m-b"><p>欢迎你来到「时光机」栏目。在这里你可以记录你的日常和心情。而且，首页的“闲言碎语”栏目会显示最新的三条动态哦！这是默认的第一条说说，当你发布第一条说说的时候，该条动态会自动消失。</p></div>
+            </div>
+          </div>
+    </div>
+    </ol>
+    </div>
     <?php endif; ?>
-    <?php //endif; ?>
 
 </div> 

@@ -14,8 +14,9 @@
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
         ), '', ' - '); ?><?php $this->options->title(); ?><?php if ($this->is('index')) : ?> - <?php $this->options->titleintro() ?><?php endif; ?></title>
+    <?php if($this->options->favicon): ?>
     <link rel="icon" type="image/ico" href="<?php $this->options->favicon() ?>">
-
+    <?php endif; ?>
     <!-- 第三方CDN加载CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,10 +29,12 @@
   
     <!-- 本地compass版本 -->
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/appall.min.css') ?>" type="text/css" />
-
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" data-no-instant></script>
-
 <style type="text/css">
+<?php if($this->options->progresscolor) : ?>
+  #instantclick-bar {
+    background: <?php $this->options->progresscolor() ?>!important;
+  }
+<?php endif; ?>
   html.bg{
   <?php if ( $this->options->BGtype =='0' ) : ?>
     background: <?php $this->options->bgcolor(); ?> ;
@@ -168,6 +171,12 @@
 </style>
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
+    
+  <!--网站统计代码-->
+<script data-no-instant type="text/javascript">
+<?php $this->options->analytics(); ?>
+</script>
+
 </head>
 <body>
 <div id="alllayout" class="app">

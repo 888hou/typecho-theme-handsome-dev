@@ -89,7 +89,6 @@
         <!-- / buttons -->
 
 
-
         <!-- search form -->
         <form method="post" action="" class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" data-target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
           <div class="form-group">
@@ -149,10 +148,10 @@
                           ->limit($limit));
                    
                       foreach ($comments AS $comment) {
-                       echo '<a href="#" class="list-group-item"><span class="clear block m-b-none">'.$comment['text'].'<br><small class="text-muted">'.date('Y-n-j H:i:s',$comment['created']+($this->options->timezone - idate("Z"))).'</small></span></a>';
+                       echo '<a href="#" class="list-group-item"><span class="clear block m-b-none words_contents">'.$comment['text'].'<br><small class="text-muted">'.date('Y-n-j H:i:s',$comment['created']+($this->options->timezone - idate("Z"))).'</small></span></a>';
                       }
                   } else {
-                      echo "<li>No Comments</li>";
+                      echo '<a href="#" class="list-group-item"><span class="clear block m-b-none">这是一条默认的说说，如果你看到这条动态，请去后台新建独立页面，地址填写cross,自定义模板选择时光机。具体说明请参见主题的使用攻略。<br><small class="text-muted">'.date("F jS, Y \a\t h:i a",time()+($this->options->timezone - idate("Z"))).'</small></span></a>';
                   }?>
                 </div>
               </div>
@@ -177,10 +176,21 @@
             <ul class="dropdown-menu animated fadeInRight w">
               <li class="wrapper b-b m-b-sm bg-light m-t-n-xs">
                 <div>
-                  <p>I'm a 18 years old but</p>
+                <?php 
+                    $time= date("H",time()+($this->options->timezone - idate("Z")));
+                    $percent= $time/24;
+                    $percent= sprintf("%01.2f", $percent*100).'%';
+                ?> 
+                <?php if($time>=6 && $time<=11): ?>
+                  <p>Good morning, <?php $this->user->screenName(); ?>.</p>
+                <?php elseif($time>=12 && $time<=17): ?>
+                  <p>Good afternoon, <?php $this->user->screenName(); ?>.</p>
+                <?php else : ?>
+                <p>Good evening, <?php $this->user->screenName(); ?>.</p>
+              <?php endif; ?>
                 </div>
                 <div class="progress progress-xs m-b-none dker">
-                  <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: 20%"></div>
+                  <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: <?php echo $percent; ?>"></div>
                 </div>
               </li>
               <!--文章RSS订阅-->

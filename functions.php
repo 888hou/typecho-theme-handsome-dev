@@ -5,6 +5,22 @@ function themeConfig($form) {
 	echo "
     
 <style>
+@media screen and (min-device-width: 1024px) {
+    ::-webkit-scrollbar-track {
+        background-color: rgba(255,255,255,0);
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        background-color: rgba(255,255,255,0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: rgba(193,193,193,1);
+    }
+}
+
 .row {
     margin: 0px;
 }
@@ -51,7 +67,7 @@ ul.typecho-option-tabs.fix-tabs.clearfix {
 }
 .typecho-page-title h2{
 	margin: 0px;
-    font-size: 3.28571em;
+    font-size: 2.28571em;
     color: #fff;
 }
 .typecho-option-tabs{
@@ -215,20 +231,44 @@ input[type=text], textarea {
 }
 
 #typecho-option-item-preload-22{
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
     background-color: #fff;
     margin: 8px 1%;
     padding: 8px 2%;
-    width: 50%;
+    width: 59%;
     margin-bottom: 40px;
 }
 #typecho-option-item-delaytime-23{
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    background-color: #fff;
+    margin: 8px 1%;
+    padding: 8px 2%;
+    width: 29%;
+    margin-bottom: 40px;
+}
+#typecho-option-item-RandomPicAmnt-24,#typecho-option-item-RandomPicAmnt2-25,#typecho-option-item-RandomPicChoice-26 {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
     background-color: #fff;
     margin: 8px 1%;
     padding: 8px 2%;
-    width: 34%;
+    width: 27.333%;
     margin-bottom: 40px;
+}
+#typecho-option-item-CDNURL-27, #typecho-option-item-timepic-28,#typecho-option-item-progresscolor-29 {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    background-color: #fff;
+    margin: 8px 1%;
+    padding: 8px 2%;
+    width: 27.333%;
+    margin-bottom: 40px;
+}
+
+#typecho-option-item-BottomInfo-30,#typecho-option-item-ChangeAction-31{
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    background-color: #fff;
+    margin: 8px 1%;
+    padding: 8px 2%;
+    width: 94%;
 }
 </style>
 
@@ -256,7 +296,11 @@ input[type=text], textarea {
     'aside-folded' => _t('折叠导航'),
     'aside-dock' => _t('置顶导航'),
     'container-box' => _t('盒子模型'),
-    'atargetblank' => _t('文章和评论区链接以新标签页形式打开')
+    'show-avatar' => _t('折叠左侧边栏头像'),
+    'atargetblank' => _t('文章和评论区链接以新标签页形式打开'),
+    'NoRandomPic-post' => _t('文章页面不显示头图'),
+    'NoRandomPic-index' => _t('首页不显示头图'),
+    'NoSummary-index' => _t('首页文章不显示摘要')
     ),
     array('header-fix', 'aside-fix','atargetblank'), _t('全站设置开关'));
     
@@ -266,23 +310,23 @@ input[type=text], textarea {
     $themetype = new Typecho_Widget_Helper_Form_Element_Radio('themetype',
         array(
             '0' => _t('black-white-black &emsp;&emsp;'),
-            '1' => _t('dark-white-dark &emsp;&emsp;'),
+            '1' => _t('dark-white-dark &emsp;&emsp;</br>'),
             '2' => _t('white-white-black &emsp;&emsp;'),
-            '3' => _t('primary-white-dark &emsp;&emsp;'),
+            '3' => _t('primary-white-dark &emsp;&emsp;</br>'),
             '4' => _t('info-white-black &emsp;&emsp;'),
-            '5' => _t('success-white-dark &emsp;&emsp;'),
-            '6' => _t('danger-white-dark &emsp;&emsp;'),
-            '7' => _t('black-black-white &emsp;&emsp;'),
+            '5' => _t('success-white-dark &emsp;&emsp;</br>'),
+            '6' => _t('danger-white-dark &emsp;&emsp;</br>'),
+            '7' => _t('black-black-white &emsp;&emsp;</br>'),
             '8' => _t('dark-dark-light &emsp;&emsp;'),                        
-            '9' => _t('info-info-light &emsp;&emsp;'),
+            '9' => _t('info-info-light &emsp;&emsp;</br>'),
             '10' => _t('primary-primary-dark &emsp;&emsp;'),
-            '11' => _t('info-info-black &emsp;&emsp;'),
+            '11' => _t('info-info-black &emsp;&emsp;</br>'),
             '12' => _t('success-success-dark &emsp;&emsp;'),
-            '13' => _t('danger-danger-dark &emsp;&emsp;')
+            '13' => _t('danger-danger-dark &emsp;&emsp;</br>')
         ),
 
         //Default choose
-        '1',_t('主题色调选择'),_t("选择背景方案.如默认的<b>dark-white-dark</b> 分别代表：左侧边栏和上导航栏的交集部分、上导航栏、左侧边栏的颜色。")
+        '1',_t('主题色调选择'),_t("</br>选择背景方案.如默认的<b>dark-white-dark</b> 分别代表：左侧边栏和上导航栏的交集部分、上导航栏、左侧边栏的颜色。")
     );
     $form->addInput($themetype);
     //盒子模型中背景样式选择
@@ -370,12 +414,8 @@ input[type=text], textarea {
     $about = new Typecho_Widget_Helper_Form_Element_Textarea('about', NULL, '来自南部的一个小城市，个性不张扬，讨厌随波逐流。', _t('输入关于我的内容'), _t('输入关于我的内容，将会在时光机的关于我栏目中显示'));
     $form->addInput($about);
 
-  /*  //gravatar镜像源
-    $CDNURL = new Typecho_Widget_Helper_Form_Element_Text('gravatar镜像源地址', NULL, 'https://secure.gravatar.com', _t('CDN 地址'), _t("gravatar由于国内被墙，推荐使用国内镜像源替代。默认为https://secure.gravatar.com (默认不要加斜杠)"));
-    $form->addInput($CDNURL);*/
-
     //网站统计代码
-    $analysis = new Typecho_Widget_Helper_Form_Element_Textarea('analysis', NULL, NULL, _t('网站统计代码'), _t('填入如 CNZZ或者Google Analysis 的第三方统计代码'));
+    $analysis = new Typecho_Widget_Helper_Form_Element_Textarea('analysis', NULL, NULL, _t('网站统计代码'), _t('填入第三方统计代码.<b>注意：</b>这里面填写的是js代码，<b>而无需"\<\script\>\"标签！！！！！</b></br><span style="color: #f00">提示：</span><span><b>推荐使用google analysis、百度统计</b>，由于ajax，CNZZ代码用户请使用样例代码的第一种，而且“统计代码”字样会随着页面加载消失，望了解。</span>(不推荐cnzz，因为cnzz代码使用document.wirte创建“站长统计”字样不安全，而且cnzz界面不好看~)'));
     $form->addInput($analysis);
     //favicon图标
     $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('favicon 地址'), _t('填入博客 favicon 的地址, 不填则显示主机根目录下的favicon.ico文件'));
@@ -398,6 +438,46 @@ input[type=text], textarea {
     //instantclick延迟时间设置
     $delaytime = new Typecho_Widget_Helper_Form_Element_Text('delaytime', NULL, '70', _t('instantclick延迟时间设置'), _t('只有当你instantclick选择<b>on-mouseover-with-a-delay</b>,才需要配置此项。默认70，官方推荐在50——100之间的整数。'));
     $form->addInput($delaytime);
+
+    // 文章缩略图数目设置
+    $RandomPicAmnt = new Typecho_Widget_Helper_Form_Element_Text('RandomPicAmnt', NULL, _t('2'), _t('文章头图随机缩略图数量'), _t('对应于主题目录下的img/sj 文件夹中的图片的数量。说明：文章头图显示方式：<b>thumb（自定义字段）--> 第一个图片附件--> 文章第一张图片 --> 随机图片输出</b>。图片必须以从1开始的数字命名，而且必须是.jpg文件'));
+    $form->addInput($RandomPicAmnt);
+
+    // 右侧边栏缩略图数目设置
+    $RandomPicAmnt2 = new Typecho_Widget_Helper_Form_Element_Text('RandomPicAmnt2', NULL, _t('15'), _t('右侧边栏随机缩略图数量'), _t('对应于主题目录下的img/sj2文件夹中的图片的数量。这里指的缩略图是<b>右侧边栏热门文章、随机文章的缩略图</b>'));
+    $form->addInput($RandomPicAmnt2);
+    //文章缩略图设置
+   $RandomPicChoice = new Typecho_Widget_Helper_Form_Element_Radio('RandomPicChoice',
+        array(
+            '0' => _t('只显示随机图片'),
+            '1' => _t('显示顺序：thumb自定义字段——文章第一张图片——第一个附件'),
+            '2' => _t('显示顺序：thumb自定义字段——文章第一张图片——第一个附件——随机图片(推荐)')
+        ),
+        //Default choose
+        '2',_t('博客头图设置'),_t('该头图设置对首页和文章页面同时生效。推荐选择第三个。<br><span style="color: #f00">注意</span>：此项设置仅在全局设置开启头图后才生效')
+    );
+    $form->addInput($RandomPicChoice);
+
+    //gravatar镜像源
+    $CDNURL = new Typecho_Widget_Helper_Form_Element_Text('CDNURL', NULL, 'https://secure.gravatar.com', _t('gravatar镜像源地址'), _t("
+    gravatar由于国内被墙，推荐使用https://secure.gravatar.com 或者https://cdn.v2ex.com/gravatar 镜像源。你可以使用你自己的镜像源(末尾不要加斜杠！！！)"));
+    $form->addInput($CDNURL);
+    //时光机页面的头图
+    $timepic = new Typecho_Widget_Helper_Form_Element_Text('timepic', NULL, 'https://o9o5ixzu2.qnssl.com/background3.jpg', _t('时光机页面的头图'), _t("填写图片地址，在时光机页面cross.html独立页面的头图，图片大小切勿过大，控制在100K左右为佳。"));
+    $form->addInput($timepic);
+
+    //加载进度条颜色
+    $progresscolor = new Typecho_Widget_Helper_Form_Element_Text('progresscolor', NULL, NULL, _t('加载进度条颜色'), _t('在这里填写正确的颜色代码作为顶部加载进度条的颜色，默认为蓝色#29。'));
+    $form->addInput($progresscolor);
+
+    //网站底部信息
+    $BottomInfo = new Typecho_Widget_Helper_Form_Element_Textarea('BottomInfo', NULL, NULL, _t('博客底部信息'), _t('这里面填写的是html代码，位置是博客底部的右边。可以填写备案号等一些信息。'));
+    $form->addInput($BottomInfo);
+
+    //回调函数
+    $ChangeAction = new Typecho_Widget_Helper_Form_Element_Textarea('ChangeAction', NULL, NULL, _t('instantclick回调函数'), _t('本主题使用instantclick.js 技术，instantclick提供丰富的回调函数接口，方便在通过instantclick跳转页面时候再次调用函数，避免了由于instantclick导致的函数失效。最常用的是change函数，当页面跳转的同时就会触发该函数，在这里填入相应的事件以便回调（与pjax的send函数相似）。</br><span style="color: #f00">注意</span>：如果你没有修改主题源码，是不需要填写此项的。如果你不明白该项，建议不要填写。'));
+    $form->addInput($ChangeAction);
+
 }
 
 // 首页文章缩略图
@@ -405,7 +485,7 @@ input[type=text], textarea {
 function showThumbnail($widget)
 { 
     // 当文章无图片时的默认缩略图
-    $rand = rand(1,3); // 随机 1-3 张缩略图
+    $rand = rand(1,$widget->widget('Widget_Options')->RandomPicAmnt); // 随机 1-3 张缩略图
 
     $random = $widget->widget('Widget_Options')->themeUrl . '/img/sj/' . $rand . '.jpg'; // 随机缩略图路径
     //正则匹配 主题目录下的/images/sj/的图片（以数字按顺序命名）
@@ -421,38 +501,46 @@ else{
   $patternMD = '/\!\[.*?\]\((http(s)?:\/\/.*?(jpg|png))/i';
     $patternMDfoot = '/\[.*?\]:\s*(http(s)?:\/\/.*?(jpg|png))/i';
 
-if ($attach && $attach->isImage) {
-
-$ctu = $attach->url.$cai;
-    } 
 //调用第一个图片附件
-else 
+if ($attach && $attach->isImage) {
+    $ctu = $attach->url.$cai;
+} 
 
 //下面是调用文章第一个图片
-if (preg_match_all($pattern, $widget->content, $thumbUrl)) {
-$ctu = $thumbUrl[1][0].$cai;
-    }
+else if (preg_match_all($pattern, $widget->content, $thumbUrl)) {
+    $ctu = $thumbUrl[1][0].$cai;
+}
 
 //如果是内联式markdown格式的图片
-  else   if (preg_match_all($patternMD, $widget->content, $thumbUrl)) {
-$ctu = $thumbUrl[1][0].$cai;
-    }
-    //如果是脚注式markdown格式的图片
-    else if (preg_match_all($patternMDfoot, $widget->content, $thumbUrl)) {
-$ctu = $thumbUrl[1][0].$cai;
-    }
+else if (preg_match_all($patternMD, $widget->content, $thumbUrl)) {
+    $ctu = $thumbUrl[1][0].$cai;
+}
+//如果是脚注式markdown格式的图片
+else if (preg_match_all($patternMDfoot, $widget->content, $thumbUrl)) {
+    $ctu = $thumbUrl[1][0].$cai;
+}
 //以上都不符合，即随机输出图片
 else {
-$ctu = $random;
+    if($widget->widget('Widget_Options')->RandomPicChoice =='1')
+        $ctu='';
+    else
+        $ctu = $random;
 }
-return $ctu;
+//return输出
+if ($widget->widget('Widget_Options')->RandomPicChoice =='0' ){
+    return $random;
+}
+else{
+    return $ctu;
+}
+
 }
 
 //文章页面侧边栏缩略图
 function showThumbnail2($widget)
 { 
     // 当文章无图片时的默认缩略图
-    $rand = rand(1,15); // 随机 1-15 张缩略图
+    $rand = rand(1,$widget->widget('Widget_Options')->RandomPicAmnt2); // 随机 1-15 张缩略图
 
     $random = $widget->widget('Widget_Options')->themeUrl . '/img/sj2/' . $rand . '.jpg'; // 随机缩略图路径
     //正则匹配 主题目录下的/images/sj/的图片（以数字按顺序命名）

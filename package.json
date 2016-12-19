@@ -1,6 +1,6 @@
 {
   "name": "handsome",
-  "version": "1.0.0",
+  "version": "1.3.1",
   "description": "一款typecho 功能强大，外观简约的主题",
   "main": "grunfile.js",
   "dependencies": {},
