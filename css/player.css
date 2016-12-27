@@ -1,0 +1,27 @@
+.ymusic {
+	z-index: 999;
+	position: fixed;
+	right: -1px;
+	top: 120px;
+	text-align: center;
+	background: #f6f8f8;
+	color: #58666e !important;
+	cursor: pointer;
+	border-right-width: 0;
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-color: #dee5e7;
+}
+
+#ydnext {
+	top: 165px;
+}
+
+bgm a,bgm a:hover {
+	text-decoration: none
+}
+
+bgm a:hover {
+	color: #2479CC
+}
+

@@ -1093,9 +1093,6 @@ body {
   .navbar-form .form-group {
     margin-bottom: 0;
   }
-  .w {
-    margin-left: 20%!important;
-}
 }
 
 html.bg {
@@ -3732,6 +3729,10 @@ fieldset[disabled] .i-checks input + i:before {
   -webkit-animation: icon-spin 2s infinite linear;
   animation: icon-spin 2s infinite linear
 }
+.icon-spin-music {
+  -webkit-animation: icon-spin 6s infinite linear;
+  animation: icon-spin 6s infinite linear
+}
 
 .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
     color: #fff;
@@ -5034,6 +5035,21 @@ img {
 .navbar-header .icon-shouyeshouye{
   font-size: 16px!important;
 }
+.reply2view {
+  background:#f8f8f8;
+  padding:10px 10px 10px 40px;
+  position:relative
+}
+.reply2view i {
+  display:block;
+  font-size:20px;
+  height:20px;
+  left:10px;
+  line-height:20px;
+  position:absolute;
+  top:15px
+}
+
 /*desktop*/
 
 @media screen and (min-width: 992px) {
@@ -5208,6 +5224,26 @@ p {
     padding-top: .1875rem;
     color: inherit!important;
 }
+
+.comment-child2 {
+    margin-left: -50px!important;
+}
+
+/*.comment-list li.comment-by-author a[rel~=external]:after {
+    content: "Admin";
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(0,0,0,.2);
+    margin-left: 5px;
+    font-size: .75rem;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    color: #a6a8b1;
+    background-color: #3a3f51;
+    padding: .2em .6em .3em;
+}*/
 
 /* Moving bar */
 

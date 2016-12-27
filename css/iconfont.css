@@ -1,21 +1,21 @@
 
 @font-face {font-family: "iconfont";
-  src: url('../fonts/iconfont.eot?t=1482153862621'); /* IE9*/
-  src: url('../fonts/iconfont.eot?t=1482153862621#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/iconfont.woff?t=1482153862621') format('woff'), /* chrome, firefox */
-  url('../fonts/iconfont.ttf?t=1482153862621') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../fonts/iconfont.svg?t=1482153862621#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('../fonts/iconfont.eot?t=1482758221764'); /* IE9*/
+  src: url('../fonts/iconfont.eot?t=1482758221764#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/iconfont.woff?t=1482758221764') format('woff'), /* chrome, firefox */
+  url('../fonts/iconfont.ttf?t=1482758221764') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/iconfont.svg?t=1482758221764#iconfont') format('svg'); /* iOS 4.1- */
 }
+
 .iconfont {
   font-family:"iconfont" !important;
-  font: normal normal normal 14px/1 iconfont;
-  font-style:normal;
   display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.icon-shouye:before { content: "\e600"; }
 
 .icon-facebook:before { content: "\e616"; }
 
@@ -23,17 +23,11 @@
 
 .icon-pengyouquan:before { content: "\e647"; }
 
-.icon-weibiaoti5:before { content: "\e626"; }
-
-.icon-search:before { content: "\e66b"; }
-
 .icon-176pages:before { content: "\e7d8"; }
 
+.icon-user1:before { content: "\e6e8"; }
+
 .icon-angledown:before { content: "\e60e"; }
-
-.icon-user1:before { content: "\e6a0"; }
-
-.icon-eye:before { content: "\e6c1"; }
 
 .icon-indent:before { content: "\e714"; }
 
@@ -41,11 +35,9 @@
 
 .icon-bell:before { content: "\e603"; }
 
-.icon-comments:before { content: "\e6c0"; }
-
 .icon-dedent:before { content: "\e6dc"; }
 
-.icon-clocko:before { content: "\e6fa"; }
+.icon-clocko:before { content: "\e641"; }
 
 .icon-image:before { content: "\eb26"; }
 
@@ -56,8 +48,6 @@
 .icon-c-classification:before { content: "\e636"; }
 
 .icon-rss:before { content: "\ea5a"; }
-
-.icon-xitongguanli1:before { content: "\e62f"; }
 
 .icon-spinner:before { content: "\e805"; }
 
@@ -81,7 +71,22 @@
 
 .icon-bars:before { content: "\e63c"; }
 
+.icon-cogs:before { content: "\e65c"; }
+
+.icon-comments:before { content: "\e65e"; }
+
+.icon-eye:before { content: "\e673"; }
+
 .icon-fire:before { content: "\e67e"; }
+
+.icon-home:before { content: "\e6ac"; }
+
+.icon-search:before { content: "\e6f2"; }
 
 .icon-rss1:before { content: "\e602"; }
 
+.icon-player:before { content: "\e606"; }
+
+.icon-next:before { content: "\e607"; }
+
+.icon-music:before { content: "\e609"; }

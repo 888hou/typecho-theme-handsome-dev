@@ -54,7 +54,26 @@
               </a>
               <!-- dropdown -->
               <ul class="dropdown-menu animated fadeInRight w hidden-folded">
-              </li>
+                <li class="wrapper b-b m-b-sm bg-info m-t-n-xs">
+                  <span class="arrow top hidden-folded arrow-info"></span>
+                  <div>
+                <?php 
+                    $time= date("H",time()+($this->options->timezone - idate("Z")));
+                    $percent= $time/24;
+                    $percent= sprintf("%01.2f", $percent*100).'%';
+                ?> 
+                <?php if($time>=6 && $time<=11): ?>
+                  <p>Good morning, <?php $this->options->BlogName(); ?>.</p>
+                <?php elseif($time>=12 && $time<=17): ?>
+                  <p>Good afternoon, <?php $this->options->BlogName(); ?>.</p>
+                <?php else : ?>
+                <p>Good evening, <?php $this->options->BlogName(); ?>.</p>
+                <?php endif; ?>
+                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="<?php echo $percent; ?>" style="width: <?php echo $percent; ?>"></div>
+                  </div>
+                </li>
               <!--文章RSS订阅-->
               <li>
                 <a href="<?php $this->options->feedUrl(); ?>">
@@ -70,7 +89,7 @@
               <?php if($this->user->hasLogin()): ?>
               <!--后台管理-->
               <li>
-                <a data-no-instant target="_blank" href="<?php $this->options->adminUrl(); ?>"><i style="position: relative;width: 30px;margin: -11px -10px;margin-right: 0px;overflow: hidden;line-height: 30px;text-align: center;" class="iconfont icon-xitongguanli1"></i><span>后台管理</span></a>
+                <a data-no-instant target="_blank" href="<?php $this->options->adminUrl(); ?>"><i style="position: relative;width: 30px;margin: -11px -10px;margin-right: 0px;overflow: hidden;line-height: 30px;text-align: center;" class="iconfont icon-cogs"></i><span>后台管理</span></a>
               </li>
               <?php else: ?>
               <li>
@@ -94,7 +113,7 @@
               <!--主页-->
               <li>
                 <a href="<?php $this->options->siteUrl(); ?>" class="auto">      
-                  <i class="iconfont icon-shouye icon text-md"></i>
+                  <i class="iconfont icon-home icon text-md"></i>
                   <span>主页</span>
                 </a>
               </li>

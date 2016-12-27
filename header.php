@@ -8,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <?php if($this->options->ChromeThemeColor): ?>
+    <meta name="theme-color" content="<?php $this->options->ChromeThemeColor() ?>" />
+    <?php endif; ?>
     <title><?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
             'search'    =>  _t('包含关键字 %s 的文章'),
@@ -29,7 +32,12 @@
   
     <!-- 本地compass版本 -->
   <link rel="stylesheet" href="<?php $this->options->themeUrl('css/appall.min.css') ?>" type="text/css" />
+
 <style type="text/css">
+<?php if ( $this->options->ismobilehide =='0' ) : ?>
+@media only screen and (max-width:766px){.ymusic{display:none}}
+<?php else: ?>
+<?php endif; ?>
 <?php if($this->options->progresscolor) : ?>
   #instantclick-bar {
     background: <?php $this->options->progresscolor() ?>!important;
@@ -174,7 +182,7 @@
     
   <!--网站统计代码-->
 <script data-no-instant type="text/javascript">
-<?php $this->options->analytics(); ?>
+<?php $this->options->analysis(); ?>
 </script>
 
 </head>

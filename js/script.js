@@ -46,3 +46,10 @@ $(document).ready(function(){
 
 console.log('\n %c theme handsome v1.5.2 %c by友人C<ihewro.com> 2016/12/10 \n\n','color:#444;background:#eee;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#eee;background:#444;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 /*希望使用本主题能够保留本行注释QWQ*/
+
+var ody=document.getElementById('ydmc');
+if (yaudio.paused) {
+ody.className = 'iconfont icon-player';
+} else {
+ody.className = 'iconfont icon-music icon-spin-music';
+}

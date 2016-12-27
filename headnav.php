@@ -167,7 +167,7 @@
               </span>
               <span class="hidden-sm hidden-md"><?php $this->user->screenName(); ?></span> 
             <?php else: ?>
-            <span>登录</span> 
+            <span class="text">登录</span> 
           <?php endif; ?>
               <b class="caret"></b><!--下三角符号-->
             </a>
@@ -190,7 +190,7 @@
               <?php endif; ?>
                 </div>
                 <div class="progress progress-xs m-b-none dker">
-                  <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: <?php echo $percent; ?>"></div>
+                  <div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="<?php echo $percent; ?>" style="width: <?php echo $percent; ?>"></div>
                 </div>
               </li>
               <!--文章RSS订阅-->
@@ -206,7 +206,7 @@
               <!--后台管理(登录时候才会显示)-->
               <?php if($this->user->hasLogin()): ?>
               <li>
-                <a data-no-instant target="_blank" href="<?php $this->options->adminUrl(); ?>"><i style="position: relative;width: 30px;margin: -11px -10px;margin-right: 0px;overflow: hidden;line-height: 30px;text-align: center;" class="iconfont icon-xitongguanli1"></i><span>后台管理</span></a>
+                <a data-no-instant target="_blank" href="<?php $this->options->adminUrl(); ?>"><i style="position: relative;width: 30px;margin: -11px -10px;margin-right: 0px;overflow: hidden;line-height: 30px;text-align: center;" class="iconfont icon-cogs"></i><span>后台管理</span></a>
               </li>
               <?php else: ?>
               <?php endif; ?>
@@ -226,7 +226,11 @@
               <div class="form-group">
                 <label for="navbar-login-password">密码</label>
                 <input type="password" name="password" id="navbar-login-password" class="form-control" placeholder="密码"></div>
-              <button type="submit" class="btn btn-block btn-primary">登录</button>
+              <button type="submit" id="login-submit" class="btn btn-block btn-primary">
+              <span class="text">登录</span>
+              <span class="text-active">提交中...</span>
+              <i class="icon-spin iconfont icon-spinner hide" id="spin-login"></i>
+              </button>
               <input type="hidden" name="referer" value="<?php $this->options->siteUrl(); ?>" data-current-url="value"></form>
           </div>
           <?php endif; ?>

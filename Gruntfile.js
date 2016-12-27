@@ -3,11 +3,16 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             domop: {
-                src: ['js/develope/ui-nav.js','js/develope/ui-toggle.js','js/develope/ui-client.js','js/develope/toastr.min.js'],
+                src: ['js/develope/ui-nav.js','js/develope/ui-toggle.js','js/develope/ui-client.js','js/develope/toastr.min.js','js/develope/player.js'],
                 dest: 'js/main.js'
             },
+            domop2: {
+                src: ['js/develope/script.js','js/develope/prbug.js'],
+                dest: 'js/script.js'
+            },
+
         css: {
-            src: ['css/animate.css','css/app.css','css/font.css','css/iconfont.css','css/toastr.min.css'],//当前grunt项目中路径下的src/css目录下的所有css文件
+            src: ['css/animate.css','css/app.css','css/font.css','css/iconfont.css','css/toastr.min.css','css/player.css'],//当前grunt项目中路径下的src/css目录下的所有css文件
             dest: 'css/appall.css'  //生成到grunt项目路径下的dist文件夹下为all.css
             }     
         },
@@ -20,7 +25,7 @@ module.exports = function (grunt) {
                 dest: 'js/main.min.js'
             },
             build2:{
-                src: 'js/develope/script.js',
+                src: 'js/script.js',
                 dest: 'js/script.min.js'
             }        
         },
