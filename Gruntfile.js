@@ -3,18 +3,29 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             domop: {
-                src: ['js/develope/ui-nav.js','js/develope/ui-toggle.js','js/develope/ui-client.js','js/develope/toastr.min.js','js/develope/player.js'],
+                src: ['js/develope/ui-nav.js','js/develope/ui-toggle.js','js/develope/ui-client.js','js/develope/toastr.min.js'],
                 dest: 'js/main.js'
             },
             domop2: {
-                src: ['js/develope/script.js','js/develope/prbug.js'],
+                src: ['js/develope/script.js'],
                 dest: 'js/script.js'
             },
-
-        css: {
-            src: ['css/animate.css','css/app.css','css/font.css','css/iconfont.css','css/toastr.min.css','css/player.css'],//当前grunt项目中路径下的src/css目录下的所有css文件
-            dest: 'css/appall.css'  //生成到grunt项目路径下的dist文件夹下为all.css
-            }     
+            domp3: {
+                src: 'js/develope/OwO.js',
+                dest: 'js/OwO.min.js'
+            },
+            domp4:{
+                src: 'js/develope/prbug.js',
+                dest: 'js/prbug.min.js'
+            },
+            domp5:{
+                src: 'js/develope/player.js',
+                dest: 'js/player.min.js'
+            },
+            css: {
+                src: ['css/animate.css','css/app.css','css/font.css','css/iconfont.css','css/toastr.min.css','css/player.css','css/vs.css','css/OwO.min.css'],//当前grunt项目中路径下的src/css目录下的所有css文件
+                dest: 'css/appall.css'  //生成到grunt项目路径下的dist文件夹下为all.css
+                }     
         },
         uglify: {
             options: {
